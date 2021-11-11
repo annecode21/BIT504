@@ -9,15 +9,6 @@ public class Sprite {
 	private int initialXPosition;
 	private int initialYPosition;
 	
-	public void setInitialPosition(int initialX, int initialY) {
-		initialXPosition = initialX;
-	    initialYPosition = initialY;
-	}
-	
-	public void resetToInitialPosition() {
-		setxPosition(initialXPosition);
-	    setyPosition(initialYPosition);
-	}
 	
 	//getxPosition and getyPosition
 	public int getxPosition() {
@@ -28,6 +19,14 @@ public class Sprite {
         this.xPosition = xPosition;
     }
 	
+	public int getyPosition() {
+        return yPosition;
+    }
+
+	public void setyPosition(int yPosition) {
+        this.yPosition = yPosition;
+    }
+	
 	public void setXPosition(int newX, int panelWidth) {
 	     xPosition = newX;
 	     if (xPosition < 0) {
@@ -36,14 +35,6 @@ public class Sprite {
 	    	 xPosition = panelWidth - width;
 	     }
 	}
-	
-	public int getyPosition() {
-        return yPosition;
-    }
-
-	public void setyPosition(int yPosition) {
-        this.yPosition = yPosition;
-    }
 	
 	public void setYPosition(int newY, int panelHeight) {
 	     yPosition = newY;
@@ -97,6 +88,18 @@ public class Sprite {
         this.colour = colour;
     }
     
+    //set initial positions
+    public void setInitialPosition(int initialX, int initialY) {
+		initialXPosition = initialX;
+	    initialYPosition = initialY;
+	}
+	
+	public void resetToInitialPosition() {
+		setxPosition(initialXPosition);
+	    setyPosition(initialYPosition);
+	}
+    
+    //create rectangle
     public Rectangle getRectangle() {
         return new Rectangle(getxPosition(), getyPosition(), getWidth(), getHeight());
     }
