@@ -14,7 +14,9 @@ import java.awt.BasicStroke;
 	  private final static Color BACKGROUND_COLOUR = Color.BLACK;
 	  private final static int TIMER_DELAY = 5;
 	  GameState gameState = GameState.Initialising;
-	  Ball ball; 
+	  Ball ball;
+	  Paddle paddle1, paddle2;
+
 	  
 	  
 	public PongPanel() {
@@ -50,6 +52,8 @@ import java.awt.BasicStroke;
 	
 	public void createObjects() {
         ball = new Ball(getWidth(), getHeight());
+        paddle1 = new Paddle(Player.One, getWidth(), getHeight());
+        paddle2 = new Paddle(Player.Two, getWidth(), getHeight());
 	}
 
 	private void update() {
@@ -73,7 +77,9 @@ import java.awt.BasicStroke;
 		super.paintComponent(g);
         paintDottedLine(g);
         if(gameState != GameState.Initialising) {
-            paintSprite(g, ball);
+        	paintSprite(g, ball);
+            paintSprite(g, paddle1);
+            paintSprite(g, paddle2);
         }
 	}
 	
