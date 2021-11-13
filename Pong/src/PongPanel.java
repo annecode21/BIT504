@@ -50,14 +50,14 @@ import java.awt.Font;
 	@Override
 	public void keyPressed(KeyEvent event) {
 		if(event.getKeyCode() == KeyEvent.VK_UP) {
-            paddle2.setyVelocity(-2);
+            paddle2.setyVelocity(-1);
        } else if(event.getKeyCode() == KeyEvent.VK_DOWN) {
-            paddle2.setyVelocity(2);
+            paddle2.setyVelocity(1);
        }
 		if(event.getKeyCode() == KeyEvent.VK_W) {
-            paddle1.setyVelocity(-2);
+            paddle1.setyVelocity(-1);
        } else if(event.getKeyCode() == KeyEvent.VK_S) {
-            paddle1.setyVelocity(2);
+            paddle1.setyVelocity(1);
         }
 	}
 
