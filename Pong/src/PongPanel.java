@@ -13,8 +13,9 @@ import java.awt.BasicStroke;
   public class PongPanel extends JPanel implements ActionListener, KeyListener{
 	  private final static Color BACKGROUND_COLOUR = Color.BLACK;
 	  private final static int TIMER_DELAY = 5;
+	  GameState gameState = GameState.Initialising;
 	  Ball ball; 
-      boolean gameInitialised = false;
+	  
 	  
 	public PongPanel() {
 		setBackground(BACKGROUND_COLOUR);
@@ -52,19 +53,28 @@ import java.awt.BasicStroke;
 	}
 
 	private void update() {
-		if(!gameInitialised) {
+		switch(gameState) {
+        case Initialising: {
             createObjects();
-            gameInitialised = true;
+           gameState = GameState.Playing;
+            break;
+        }
+        case Playing: {
+            break;
        }
+       case GameOver: {
+           break;
+       }
+   }
 	}
 	
 	@Override
 	 public void paintComponent(Graphics g) {
-	     super.paintComponent(g);
-	     paintDottedLine(g);
-	     if(gameInitialised) {
-	          paintSprite(g, ball);
-	      }
+		super.paintComponent(g);
+        paintDottedLine(g);
+        if(gameState != GameState.Initialising) {
+            paintSprite(g, ball);
+        }
 	}
 	
 	private void paintDottedLine(Graphics g) {
