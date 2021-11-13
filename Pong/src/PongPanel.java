@@ -9,11 +9,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
 import java.awt.BasicStroke;
-  
+
   public class PongPanel extends JPanel implements ActionListener, KeyListener{
 	  private final static Color BACKGROUND_COLOUR = Color.BLACK;
 	  private final static int TIMER_DELAY = 5;
-	  Ball ball();
+	  Ball ball; 
       boolean gameInitialised = false;
 	  
 	public PongPanel() {
@@ -63,7 +63,7 @@ import java.awt.BasicStroke;
 	     super.paintComponent(g);
 	     paintDottedLine(g);
 	     if(gameInitialised) {
-	          paintSprite(g, ball());
+	          paintSprite(g, ball);
 	      }
 	}
 	
@@ -78,7 +78,7 @@ import java.awt.BasicStroke;
 	
 	private void paintSprite(Graphics g, Sprite sprite) {
 	      g.setColor(sprite.getColour());
-	      g.fillRect(sprite.getXPosition(), sprite.getYPosition(), sprite.getWidth(), sprite.getHeight());
+	      g.fillRect(sprite.getxPosition(), sprite.getyPosition(), sprite.getWidth(), sprite.getHeight());
 
 	}
 }
